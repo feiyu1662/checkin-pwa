@@ -35,6 +35,28 @@
     const btn = document.getElementById('checkinBtn');
     const statusEl = document.getElementById('status');
 
+    function ymdLocal(d = new Date()){
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+// 把 "YYYY-MM-DD" 解析为 本地时区 的当天 00:00
+function parseYMDLocal(s){
+  const [y, m, d] = s.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+// 只按日历日计算差值：0=同一天，1=昨天，2=前天...
+function dayDiffByCalendar(aYMD, bYMD){
+  const a = parseYMDLocal(aYMD);
+  const b = parseYMDLocal(bYMD);
+  const msPerDay = 24 * 60 * 60 * 1000;
+  return Math.round((b - a) / msPerDay);
+}
+
+
     const todayKey = () => {
       const d = new Date();
       const y = d.getFullYear();
@@ -95,4 +117,5 @@
   </script>
 </body>
 </html>
+
 
