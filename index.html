@@ -25,17 +25,21 @@
       --ok:#22c55e;
     }
     *{box-sizing:border-box}
+ body{
+  height: 100%;
+  overflow: hidden;
+}
+
+body{
+  margin:0;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
     body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-      background:var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
+  position: fixed;
+  width: 100%;
+}
     .wrap{width:min(520px,94vw)}
     .card{
       background:var(--card);
@@ -430,4 +434,5 @@
   </script>
 </body>
 </html>
+
 
