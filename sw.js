@@ -1,4 +1,4 @@
-const CACHE_NAME = "checkin-pwa-v2";
+const CACHE_NAME = "checkin-pwa-v1";
 const ASSETS = [
   "./",
   "./index.html",
@@ -16,4 +16,5 @@ self.addEventListener("fetch", (e) => {
     caches.match(e.request).then((r) => r || fetch(e.request))
   );
 });
+
 
