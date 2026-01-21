@@ -25,6 +25,10 @@
       --ok:#22c55e;
     }
     *{box-sizing:border-box}
+    html, body {
+  height: 100%;
+  overflow: hidden;        /* 关键：禁止页面滚动 */
+}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
@@ -35,7 +39,26 @@
       align-items:center;
       justify-content:center;
       padding:18px;
+
+        position: fixed;   /* ✅ 新增：锁住 body */
+  width: 100%;       /* ✅ 新增 */
+  overscroll-behavior: none; /* ✅ 新增：防橡皮筋 */
+  -webkit-text-size-adjust: 100%;
     }
+    body{
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+button{
+  -webkit-tap-highlight-color: transparent;
+}
+
+textarea{
+  -webkit-user-select: text;
+  user-select: text;
+}
     .wrap{width:min(520px,94vw)}
     .card{
       background:var(--card);
@@ -430,6 +453,7 @@
   </script>
 </body>
 </html>
+
 
 
 
